@@ -4,16 +4,20 @@ input = sys.stdin.readline
 n, l, k = map(int, input().split())
 
 easy, hard = [], []
+point = 0
+
 for _ in range(n):
     a, b = map(int, input().split())
-    easy.append(a)
-    hard.append(b)
-
-point = 0
-for i in range(k):
-    if easy[i] <= l and hard[i] > l:
-        point += 100
-    elif easy[i] <= l and hard[i] <= l:
+    if b <= l:
         point += 140
+        k -= 1
+        if k == 0:
+            break
+    else:
+        easy.append(a)
 
-print(point)
+for i in range(k):
+    if easy[i] <= l:
+        point += 100
+
+print(point)    
