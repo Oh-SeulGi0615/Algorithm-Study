@@ -2,4 +2,8 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-print(n * 4)
+
+if n * 4 >= 10 ** 9:
+    print(10 ** 9)
+else:
+    print(n * 4)
