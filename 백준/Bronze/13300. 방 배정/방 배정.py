@@ -13,9 +13,13 @@ for i in member:
     g = i.count(0)
     b = i.count(1)
     
-    g1, g2 = divmod(g, 2)
-    b1, b2 = divmod(b, 2)
+    g1, g2 = divmod(g, k)
+    b1, b2 = divmod(b, k)
 
-    room += g1 + g2 + b1 + b2
+    room += g1 + b1
+    if g2 > 0:
+        room += 1
+    if b2 > 0:
+        room += 1
 
 print(room)
