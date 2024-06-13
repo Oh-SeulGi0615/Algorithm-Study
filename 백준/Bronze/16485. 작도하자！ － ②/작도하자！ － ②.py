@@ -1,4 +1,8 @@
 c, b = map(int, input().split())
 
-result = round(max(c, b) / min(c, b), 10)
-print(result)
+result = round(c / b, 10)
+
+if result == int(result):
+    print(int(result))
+else:
+    print(result)
