@@ -1,17 +1,11 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-arr = list(map(int, input().split()))
+arr = sorted(list(map(int, input().split())), reverse=True)
 
-answer = 0
-while len(arr) > 2:
-    if arr[0] > arr[-1]:
-        answer += sum(arr[:-1]) * arr[-1]
-        arr.pop()
-    else:
-        answer += sum(arr[1:]) * arr[0]
-        arr.pop(0)
+result = 0
+arr_sum = sum(arr)
+while len(arr) > 0:
+    result += arr[-1] * (arr_sum - arr[-1])
+    arr_sum -= arr[-1]
+    arr.pop()
 
-answer += arr[0] * arr[1]
-print(answer)
+print(result)
