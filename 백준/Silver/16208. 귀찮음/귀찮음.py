@@ -11,7 +11,7 @@ while len(arr) > 2:
         arr.pop()
     else:
         answer += sum(arr[1:]) * arr[0]
-        arr.remove(arr[0])
+        arr.pop(0)
 
 answer += arr[0] * arr[1]
 print(answer)
