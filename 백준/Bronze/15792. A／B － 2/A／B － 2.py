@@ -1,5 +1,11 @@
-import decimal
-
 a, b = map(int, input().split())
 
-print(f'{decimal.Decimal(a) / decimal.Decimal(b):.1999f}')
+result = str(a//b) + '.'
+
+i = 0
+while a % b != 0 and i < 1000:
+    a = (a % b) * 10
+    i += 1
+    result += str(a//b)
+
+print(result)
