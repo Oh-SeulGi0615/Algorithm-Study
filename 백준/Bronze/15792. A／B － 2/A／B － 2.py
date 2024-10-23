@@ -1,3 +1,5 @@
+import decimal
+
 a, b = map(int, input().split())
 
-print(a/b)
+print(f'{decimal.Decimal(a) / decimal.Decimal(b):.1999f}')
