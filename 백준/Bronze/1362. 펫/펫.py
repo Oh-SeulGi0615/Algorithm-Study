@@ -1,16 +1,10 @@
 n = 1
 while True:
-    r = []
+    status = ''
     o, w = map(int, input().split())
+
     if w <= 0:
         status = 'RIP'
-        r.append(status)
-    elif 0 < w <= o/2:
-        status = ':-('
-        r.append(status)
-    elif o/2 < w < 2*o:
-        status = ':-)'
-        r.append(status)
 
     if o == 0 and w == 0:
         break
@@ -27,15 +21,10 @@ while True:
 
             if w <= 0:
                 status = 'RIP'
-                r.append(status)
-            elif o/2 < w < 2*o:
+            elif status != 'RIP' and o/2 < w < 2*o:
                 status = ':-)'
-                r.append(status)
-            else:
+            elif status != 'RIP' and (w >= 2*o or w <= o/2):
                 status = ':-('
-                r.append(status)
-    if 'RIP' in r:
-        print(n, 'RIP')
-    else:
-        print(n, r[-1])
+    
+    print(n, status)
     n += 1
