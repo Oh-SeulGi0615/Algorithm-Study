@@ -1,0 +1,13 @@
+import sys
+input = sys.stdin.readline
+
+n, l = map(int, input().split())
+
+arr = list(map(int, input().split()))
+for i in sorted(arr):
+  if l >= i:
+    l += 1
+  else:
+    break
+  
+print(l)
