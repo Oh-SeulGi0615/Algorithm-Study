@@ -27,16 +27,22 @@ if status == 'YES':
   for i in range(len(arr)):
     if arr[i] == 1:
       res.append('U')
+      arr_u -= 1
       u -= 1
     elif arr[i] == 2:
       res.append('D')
+      arr_d -= 1
       d -= 1
     else:
+      res.append('3')
+  
+  for j in range(len(res)):
+    if res[j] == '3':
       if u > 0:
-        res.append('U')
+        res[j] = 'U'
         u -= 1
-      else:
-        res.append('D')
+      elif d > 0:
+        res[j] = 'D'
         d -= 1
-
+        
   print(''.join(res))
